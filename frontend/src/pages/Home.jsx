@@ -36,11 +36,18 @@ const Home = () => {
     } else {
       setBooks((prevNotes) => {
         return main.filter((noteItem, index) => {
-          console.log(main);
+          //console.log(main);
 
           return (
             emojiName.toLocaleLowerCase() === main[index].title.toLowerCase() ||
-            emojiName.toLocaleLowerCase() === main[index].author.toLowerCase()
+            emojiName.toLocaleLowerCase() ===
+              main[index].author.toLowerCase() ||
+            main[index].author
+              .toLowerCase()
+              .includes(emojiName.toLocaleLowerCase()) ||
+            main[index].title
+              .toLowerCase()
+              .includes(emojiName.toLocaleLowerCase())
           );
         });
       });
