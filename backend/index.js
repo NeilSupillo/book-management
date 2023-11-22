@@ -11,7 +11,14 @@ app.use(express.json());
 
 //middleware for handling CORS POLICY
 //Option 1: allow all Origins with Default of cors(*)
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    methods: "*",
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
 
 //Option 2: allow Custom Origins
 // app.use(

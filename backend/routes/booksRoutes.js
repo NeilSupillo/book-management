@@ -21,6 +21,7 @@ router.post("/", async (request, response) => {
       publishYear: request.body.publishYear,
     };
     const book = await Book.create(newBook);
+    console.log(`post method ${book}`);
     return response.status(201).send(book);
   } catch (error) {
     console.log(error.message);
@@ -42,7 +43,7 @@ router.get("/", async (request, response) => {
   }
 });
 
-// rouse for get ONE books from database by ID
+// route for get ONE books from database by ID
 router.get("/:id", async (request, response) => {
   const { id } = request.params;
   try {

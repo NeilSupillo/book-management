@@ -78,13 +78,13 @@ const Home = () => {
         </button>
       </div>
 
-      <div class="search-box">
-        <button class="btn-search" onClick={find}>
+      <div className="search-box">
+        <button className="btn-search" onClick={find}>
           <img className="img" src={logo} alt="Logo" />
         </button>
         <input
           type="text"
-          class="input-search"
+          className="input-search"
           placeholder="Type to Search..."
           onChange={passName}
         />
