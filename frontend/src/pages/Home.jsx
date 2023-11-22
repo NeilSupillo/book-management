@@ -7,6 +7,7 @@ import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 import BooksCard from "../components/home/BooksCard";
 import BooksTable from "../components/home/BooksTable";
+import logo from "../../src/b.png";
 const Home = () => {
   const [books, setBooks] = useState([]);
   const [main, setMain] = useState([]);
@@ -30,14 +31,20 @@ const Home = () => {
   }
 
   function find() {
-    setBooks((prevNotes) => {
-      return main.filter((noteItem, index) => {
-        return (
-          emojiName.toLocaleLowerCase() === main[index].title.toLowerCase() ||
-          emojiName.toLocaleLowerCase() === main[index].author.toLowerCase()
-        );
+    if (emojiName === "") {
+      setBooks(main);
+    } else {
+      setBooks((prevNotes) => {
+        return main.filter((noteItem, index) => {
+          console.log(main);
+
+          return (
+            emojiName.toLocaleLowerCase() === main[index].title.toLowerCase() ||
+            emojiName.toLocaleLowerCase() === main[index].author.toLowerCase()
+          );
+        });
       });
-    });
+    }
   }
 
   useEffect(() => {
@@ -70,21 +77,20 @@ const Home = () => {
           Card
         </button>
       </div>
-      <div className="wrap">
-        <div className="search">
-          <input
-            type="text"
-            className="searchTerm"
-            placeholder="What are you looking for?"
-            onChange={passName}
-          />
-          <button type="submit" onClick={find} className="searchButton">
-            <img alt="search" />
-          </button>
-        </div>
+
+      <div class="search-box">
+        <button class="btn-search" onClick={find}>
+          <img className="img" src={logo} alt="Logo" />
+        </button>
+        <input
+          type="text"
+          class="input-search"
+          placeholder="Type to Search..."
+          onChange={passName}
+        />
       </div>
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl my-8">Book List</h1>
+        <h1 className="text-3xl my-2">Book List</h1>
         <Link to="/books/create">
           <MdOutlineAddBox className="text-sky-800 text-4xl" />
         </Link>

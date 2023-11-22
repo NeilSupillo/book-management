@@ -22,7 +22,7 @@ const BookSingleCard = ({ item }, key) => {
       </div>
 
       <div className="w-9/12">
-        <h4 className="my-2 text-white break-words">Id: {item._id}</h4>
+        <h4 className="my-2 break-words">Id: {item._id}</h4>
       </div>
       <div className="flex justify-start items-center gap-x-2">
         <PiBookOpenTextLight className="text-red-300  text-2xl" />
