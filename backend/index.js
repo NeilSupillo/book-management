@@ -13,8 +13,8 @@ app.use(express.json());
 //Option 1: allow all Origins with Default of cors(*)
 app.use(
   cors({
-    origin: "*",
-    methods: "*",
+    origin: "",
+    methods: ["POST", "GET"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
