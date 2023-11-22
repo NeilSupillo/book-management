@@ -50,7 +50,7 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5555/books")
+      .get("https://book-management-nu.vercel.app/books")
       .then((response) => {
         data(response.data.data);
         setLoading(false);
